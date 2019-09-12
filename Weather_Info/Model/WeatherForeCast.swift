@@ -11,7 +11,6 @@ struct WeatherforeCast: Codable {
     let timezone: String
     let currently: Currently
     let daily: Daily
-    let offset: Int
 }
 
 // MARK: - Currently
@@ -57,9 +56,6 @@ struct Datum: Codable {
     let dewPoint, humidity, pressure, windSpeed: Double
     let temperatureMinTime: Double
     let temperatureMax: Double
-    let temperatureMaxTime: Int
     let apparentTemperatureMin: Double
-    let apparentTemperatureMinTime: Int
     let apparentTemperatureMax: Double
-    let apparentTemperatureMaxTime: Int
 }

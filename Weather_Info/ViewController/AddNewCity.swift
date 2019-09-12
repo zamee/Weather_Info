@@ -121,6 +121,8 @@ extension AddNewCity : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        searchController.isActive = false
+        
         let alertController = UIAlertController(title: "Add", message: "Do you want to add \(self.AllCity[indexPath.row].name)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { action in
             self.saveCityInfo(

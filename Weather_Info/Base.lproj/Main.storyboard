@@ -49,6 +49,11 @@
                         <viewLayoutGuide key="safeArea" id="I3E-mL-RjV"/>
                     </view>
                     <navigationItem key="navigationItem" title="Weather Forecast" id="RA2-cY-rnz">
+                        <barButtonItem key="leftBarButtonItem" title="EDIT" id="6ft-Ak-U1r">
+                            <connections>
+                                <action selector="editCity:" destination="uQp-kC-BRp" id="uYA-Jx-kRm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="ADD" id="zTv-CJ-xj0">
                             <connections>
                                 <segue destination="edV-yb-DUe" kind="presentation" id="vtw-sq-Gbq"/>
@@ -107,6 +112,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0dZ-uK-3Tx" id="P6J-2R-7Yr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <edgeInsets key="layoutMargins" top="12" left="8" bottom="12" right="8"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

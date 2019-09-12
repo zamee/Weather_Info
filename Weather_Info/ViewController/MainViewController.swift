@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     
     var realm = try! Realm()
     let cityStore = CityStore()
+    let listOfCity = [ListOfCity]()
     
     @IBOutlet weak var cityListTable: UITableView!
     
@@ -24,7 +25,7 @@ class MainViewController: UIViewController {
         cityListTable.delegate = self
         
         cityListTable.rowHeight = UITableView.automaticDimension
-        cityListTable.estimatedRowHeight = 54.0
+        cityListTable.estimatedRowHeight = 120.0
         
         let cityListNib = UINib(nibName: "CityCell", bundle: Bundle.main)
         cityListTable.register(cityListNib, forCellReuseIdentifier: "CityCell")
@@ -32,6 +33,10 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         cityListTable.reloadData()
+    }
+    
+    @IBAction func editCity(_ sender: UIBarButtonItem) {
+        cityListTable.isEditing = true
     }
 }
 
@@ -67,10 +72,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("heeeeeey")
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let showDetailsCityWeather = storyboard.instantiateViewController(withIdentifier: "DetailsCityWeather") as? DetailsCityWeather{
-            //et friend = friends[indexPath.row]
+            //let friend = friends[indexPath.row]
 
             //showDetailsUIViewController.user_details = friend
             //manually create navigation controller
@@ -79,5 +83,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete{
+            //let deleteCity = self.listOfCity[indexPath.row]
+            //cityStore.deleteCity(city: deleteCity)
+        }
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//    }
 }
 
