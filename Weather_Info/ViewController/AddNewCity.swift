@@ -16,9 +16,7 @@ class AddNewCity: UIViewController {
     @IBOutlet weak var searchCityBar: UISearchBar!
     @IBOutlet weak var searchResultCityTable: UITableView!
     
-    var cityNameFromAPi: [String] = []
-    var cityLat:[String] = []
-    var cityLng :[String] = []
+    var AllCity = [ListOfCity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +41,9 @@ class AddNewCity: UIViewController {
     }
     
     func restore() {
-        cityNameFromAPi.removeAll()
+        self.AllCity.removeAll()
         searchResultCityTable.reloadData()
     }
-    
 
     func getCitiesInformation(searchCityByKey : String) {
 
@@ -58,12 +55,8 @@ class AddNewCity: UIViewController {
             if response.result.isSuccess,let value = response.result.value{
                 do{
                     let listOfCities = try JSONDecoder().decode(ListOfCities.self, from: value)
-                    for n in 0..<listOfCities.count{
-                        //print(listOfCities[n].name)
-                        self.cityNameFromAPi.append(listOfCities[n].name)
-                        self.cityLat.append(String(listOfCities[n].lat))
-                        self.cityLat.append(String(listOfCities[n].lon))
-                    }
+                    self.AllCity.removeAll()
+                    self.AllCity = listOfCities
                 }catch{
                     print(value)
                 }
@@ -71,9 +64,21 @@ class AddNewCity: UIViewController {
         }
     }
     
-    @IBAction func cancelSearch(_ sender: UIButton) {
+    func saveCityInfo(name: String, lat: Double, lon: Double) {
+        let saveCity = CityStore()
+        print(name)
+        let insertNewCity = saveCity.makeNewCity(city: name,lat: lat,lng: lon)
+        if saveCity.saveNewCity(city: insertNewCity){
+            print("worked")
+        }
+        //searchController.isActive = false
+        self.restore()
+        dismiss(animated: true, completion: nil)
     }
-
+    
+    @IBAction func cancelSearch(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension AddNewCity: UISearchResultsUpdating{
@@ -102,35 +107,29 @@ extension AddNewCity: UISearchBarDelegate{
 
 extension AddNewCity : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityNameFromAPi.count
+        return self.AllCity.count
     }
-    
-    
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchResultCityTable.dequeueReusableCell(withIdentifier: "CityName", for: indexPath)
-        print(cityNameFromAPi[indexPath.row])
-        cell.textLabel?.text = cityNameFromAPi[indexPath.row]
+        guard self.AllCity.count>0 else {
+            return cell
+        }
+        cell.textLabel?.text = self.AllCity[indexPath.row].name
         return cell
     }
     
-    
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Add", message: "Do you want to add \(cityNameFromAPi[indexPath.row])", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        
+
+        let alertController = UIAlertController(title: "Add", message: "Do you want to add \(self.AllCity[indexPath.row].name)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            self.saveCityInfo(
+                name: self.AllCity[indexPath.row].name,
+                lat: Double(self.AllCity[indexPath.row].lat),
+                lon: Double(self.AllCity[indexPath.row].lon))
+        })
         alertController.addAction(okAction)
-        
         present(alertController,animated: true,completion: nil)
-        
         searchController.isActive = false
-        
     }
 }

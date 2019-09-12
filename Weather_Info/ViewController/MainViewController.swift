@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         cityListTable.dataSource = self
+        cityListTable.delegate = self
         
         cityListTable.rowHeight = UITableView.automaticDimension
         cityListTable.estimatedRowHeight = 54.0
@@ -28,9 +29,13 @@ class MainViewController: UIViewController {
         let cityListNib = UINib(nibName: "CityCell", bundle: Bundle.main)
         cityListTable.register(cityListNib, forCellReuseIdentifier: "CityCell")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        cityListTable.reloadData()
+    }
 }
 
-extension MainViewController: UITableViewDataSource{
+extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cityStore.getAllCity().count
     }
@@ -43,21 +48,36 @@ extension MainViewController: UITableViewDataSource{
         Alamofire.request("https://api.darksky.net/forecast/b46e33968e621170ca0b7be45867b126/\(city.lat),\(city.lng)",method: .get).responseData{
             response in
             if response.result.isFailure,let value = response.result.error{
-                print(value)
+                print("Failure \(value)")
             }
             if response.result.isSuccess,let value = response.result.value{
                 do{
                     let weather = try JSONDecoder().decode(WeatherforeCast.self, from: value)
+                    
                     cell.cityName.text = city.name
                     cell.cityTemparature.text = String(format: "%.1f",5/9 * (weather.currently.temperature-32))+("℃")
                     cell.cityWeatherImage.image = UIImage(named: "cloudy")
                 }catch{
-                    print(error)
+                    print("ERROR \(error)")
                 }
             }
         }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("heeeeeey")
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if let showDetailsCityWeather = storyboard.instantiateViewController(withIdentifier: "DetailsCityWeather") as? DetailsCityWeather{
+            //et friend = friends[indexPath.row]
+
+            //showDetailsUIViewController.user_details = friend
+            //manually create navigation controller
+            //let navigationCOntroller = UINavigationController(rootViewController: editViewController)
+            show(showDetailsCityWeather, sender: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 

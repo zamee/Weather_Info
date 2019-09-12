@@ -63,6 +63,21 @@
             </objects>
             <point key="canvasLocation" x="-1271" y="1041"/>
         </scene>
+        <!--Details City Weather-->
+        <scene sceneID="7Ca-MA-frz">
+            <objects>
+                <viewController storyboardIdentifier="DetailsCityWeather" id="acF-UP-Uae" customClass="DetailsCityWeather" customModule="Weather_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u1J-nC-3gf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cs7-lX-6Lj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lf-ZM-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-259" y="739"/>
+        </scene>
         <!--Add New City-->
         <scene sceneID="EVG-uv-HBU">
             <objects>
@@ -134,7 +149,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-502" y="1039"/>
+            <point key="canvasLocation" x="-258" y="1402"/>
         </scene>
     </scenes>
 </document>
