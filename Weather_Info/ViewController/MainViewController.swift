@@ -88,7 +88,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
         
         if editingStyle == UITableViewCell.EditingStyle.delete{
             //let deleteCity = self.listOfCity[indexPath.row]
-            //cityStore.deleteCity(city: deleteCity)
+            //cityStore.deleteCity(city: listOfCity[indexPath.row])
         }
     }
     
