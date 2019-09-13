@@ -66,12 +66,8 @@ class AddNewCity: UIViewController {
     
     func saveCityInfo(name: String, lat: Double, lon: Double) {
         let saveCity = CityStore()
-        print(name)
         let insertNewCity = saveCity.makeNewCity(city: name,lat: lat,lng: lon)
-        if saveCity.saveNewCity(city: insertNewCity){
-            print("worked")
-        }
-        //searchController.isActive = false
+        if saveCity.saveNewCity(city: insertNewCity){}
         self.restore()
         dismiss(animated: true, completion: nil)
     }

@@ -29,14 +29,40 @@ class MainViewController: UIViewController {
         
         let cityListNib = UINib(nibName: "CityCell", bundle: Bundle.main)
         cityListTable.register(cityListNib, forCellReuseIdentifier: "CityCell")
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         cityListTable.reloadData()
     }
     
-    @IBAction func editCity(_ sender: UIBarButtonItem) {
+    @IBAction func editBar(_ sender: UIBarButtonItem) {
         cityListTable.isEditing = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidTapped))
+    }
+    
+    @objc func doneButtonDidTapped(){
+        cityListTable.isEditing = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBar(_:)))
+    }
+    
+    public func alertWithTextField(title: String? = nil, placeholder: String? = nil, completion: @escaping ((String) -> Void) = { _ in }) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        alert.addTextField() { newTextField in
+            newTextField.placeholder = placeholder
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in completion("") })
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            if
+                let textFields = alert.textFields,
+                let tf = textFields.first,
+                let result = tf.text
+            { completion(result) }
+            else
+            { completion("") }
+        })
+        navigationController?.present(alert, animated: true)
     }
 }
 
@@ -61,7 +87,34 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
                     
                     cell.cityName.text = city.name
                     cell.cityTemparature.text = String(format: "%.1f",5/9 * (weather.currently.temperature-32))+("℃")
-                    cell.cityWeatherImage.image = UIImage(named: "cloudy")
+                    
+                    switch(weather.currently.summary){
+                    case .humidAndOvercast:
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_overcast")
+                        break
+                    case .lightRainAndHumid:
+                        cell.cityWeatherImage.image = UIImage(named: "light_Rain_and_humid")
+                        break
+                    case .possibleDrizzleAndHumid:
+                        cell.cityWeatherImage.image = UIImage(named: "possible_drizzle_and_humid")
+                        break
+                    case .possibleLightRainAndHumid:
+                        cell.cityWeatherImage.image = UIImage(named: "possible_light_rain_and_humid")
+                        break
+                    case .rainAndHumid:
+                        cell.cityWeatherImage.image = UIImage(named: "rain_and_humid")
+                        break
+                    case .HumidAndFoggy:
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_foggy")
+                        break
+                    case .PartlyCloudy:
+                        cell.cityWeatherImage.image = UIImage(named: "partly_cloudy")
+                        break
+                    default:
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_foggy")
+                        break
+                    }
+                    
                 }catch{
                     print("ERROR \(error)")
                 }
@@ -85,15 +138,30 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == UITableViewCell.EditingStyle.delete{
-            //let deleteCity = self.listOfCity[indexPath.row]
-            //cityStore.deleteCity(city: listOfCity[indexPath.row])
-        }
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let allCity = self.cityStore.getAllCity()
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            try! self.cityStore.deleteCity(city: allCity[indexPath.row])
+            self.cityListTable.reloadData()
+        }
+        
+        let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            self.alertWithTextField(title: "Edit City Name", placeholder: allCity[indexPath.row].name) { result in
+
+                try! self.cityStore.updateCityNameByid(id: Int(allCity[indexPath.row].id), currentValue: String(allCity[indexPath.row].name), updatedValue: result)
+                
+                self.cityListTable.reloadData()
+            }
+        }
+        share.backgroundColor = UIColor.gray
+        
+        return [delete, share]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 }
 

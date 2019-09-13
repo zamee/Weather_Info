@@ -14,6 +14,7 @@ class CityStore {
     
     func makeNewCity(city: String, lat: Double, lng: Double) -> City {
         let newCity = City()
+        newCity.id = incrementID()
         newCity.name = city
         newCity.lat = lat
         newCity.lng = lng
@@ -36,22 +37,25 @@ class CityStore {
         return self.realm.objects(City.self)
     }
     
-    func updateCityByTitle(title: String, currentValue: String, updatedValue: String) throws {
-        let city = try findCitisByField(field: title, value: currentValue)
+    func updateCityNameByid(id: Int, currentValue: String, updatedValue: String) throws {
+        let city = try findCitisByField(field: "id", value: id)
         try! realm.write {
-            city.setValue(updatedValue, forKey: "\(title)")
+            city.setValue(updatedValue, forKey: "name")
         }
     }
     
-    private func findCitisByField(field : String, value : String) throws -> Results<City>
-    {
-        let predicate = NSPredicate(format: "%K = %@", field, value)
-        return realm.objects(City.self).filter(predicate)
+    private func findCitisByField(field : String, value : Int) throws -> Results<City>{
+        return realm.objects(City.self).filter("id == %@", value)
     }
     
     func deleteCity(city: City) throws {
         try! realm.write {
             realm.delete(city)
         }
+    }
+    
+    func incrementID() -> Int {
+        let realm = try! Realm()
+        return (realm.objects(City.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
 }

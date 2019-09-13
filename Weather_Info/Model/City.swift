@@ -10,8 +10,9 @@ import Foundation
 import RealmSwift
 
 class City: Object {
-    @objc dynamic var id = OID_AUTO
+    @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var lat = 0.0
     @objc dynamic var lng = 0.0
 }
+

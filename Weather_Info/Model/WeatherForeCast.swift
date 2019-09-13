@@ -16,7 +16,7 @@ struct WeatherforeCast: Codable {
 // MARK: - Currently
 struct Currently: Codable {
     let time: Int
-    let summary: String
+    let summary: Summary
     let icon: String
     let temperature, apparentTemperature, dewPoint, humidity: Double
     let pressure, windSpeed, windGust: Double
@@ -30,6 +30,13 @@ enum Summary: String, Codable {
     case rainAndHumid = "Rain and Humid"
     case HumidAndFoggy = "Humid and Foggy"
     case PartlyCloudy = "Partly Cloudy"
+    case MostlyCloudy = "Mostly Cloudy"
+    case HumidAndMostlyCloudy = "Humid and Mostly Cloudy"
+    case Clear = "Clear"
+    case PossibleDrizzle = "Possible Drizzle"
+    case PossibleLightRain = "Possible Light Rain"
+    case LightRain = "Light Rain"
+    case HumidAndPartlyCloudy = "Humid and Partly Cloudy"
 }
 
 // MARK: - Daily

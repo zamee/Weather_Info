@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" title="Weather Forecast" id="RA2-cY-rnz">
                         <barButtonItem key="leftBarButtonItem" title="EDIT" id="6ft-Ak-U1r">
                             <connections>
-                                <action selector="editCity:" destination="uQp-kC-BRp" id="uYA-Jx-kRm"/>
+                                <action selector="editBar:" destination="uQp-kC-BRp" id="dkU-L9-52o"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="ADD" id="zTv-CJ-xj0">
