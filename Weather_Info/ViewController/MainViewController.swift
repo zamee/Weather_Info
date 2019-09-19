@@ -86,32 +86,56 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
                     let weather = try JSONDecoder().decode(WeatherforeCast.self, from: value)
                     
                     cell.cityName.text = city.name
-                    cell.cityTemparature.text = String(format: "%.1f",5/9 * (weather.currently.temperature-32))+("℃")
+                    cell.cityTemparature.text = String(format: "%.0f",5/9 * (weather.currently.temperature-32))+("℃")
                     
                     switch(weather.currently.summary){
-                    case .humidAndOvercast:
+                    case "Humid And Overcast":
                         cell.cityWeatherImage.image = UIImage(named: "humid_and_overcast")
                         break
-                    case .lightRainAndHumid:
+                    case "Light Rain And Humid":
                         cell.cityWeatherImage.image = UIImage(named: "light_Rain_and_humid")
                         break
-                    case .possibleDrizzleAndHumid:
+                    case "Possible Drizzle and Humid":
                         cell.cityWeatherImage.image = UIImage(named: "possible_drizzle_and_humid")
                         break
-                    case .possibleLightRainAndHumid:
+                    case "Possible Light Rain and Humid":
                         cell.cityWeatherImage.image = UIImage(named: "possible_light_rain_and_humid")
                         break
-                    case .rainAndHumid:
+                    case "Possible Light Rain":
+                        cell.cityWeatherImage.image = UIImage(named: "possible_light_rain")
+                        break
+                    case "Rain And Humid":
                         cell.cityWeatherImage.image = UIImage(named: "rain_and_humid")
                         break
-                    case .HumidAndFoggy:
+                    case "Humid And Foggy":
                         cell.cityWeatherImage.image = UIImage(named: "humid_and_foggy")
                         break
-                    case .PartlyCloudy:
+                    case "Humid":
+                        cell.cityWeatherImage.image = UIImage(named: "humid")
+                        break;
+                    case "Humid and Overcast":
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_overcast")
+                        break
+                    case "Partly Cloudy":
                         cell.cityWeatherImage.image = UIImage(named: "partly_cloudy")
                         break
+                    case "Humid and Mostly Cloudy":
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_mostly_cloudy")
+                        break
+                    case "Humid and Partly Cloudy":
+                        cell.cityWeatherImage.image = UIImage(named: "humid_and_partly_cloudy")
+                        break
+                    case "Mostly Cloudy":
+                        cell.cityWeatherImage.image = UIImage(named: "mostly_cloudy")
+                        break
+                    case "Overcast":
+                        cell.cityWeatherImage.image = UIImage(named: "overcast")
+                        break
+                    case "Clear":
+                        cell.cityWeatherImage.image = UIImage(named: "clear")
+                        break
                     default:
-                        cell.cityWeatherImage.image = UIImage(named: "humid_and_foggy")
+                        cell.cityWeatherImage.image = UIImage(named: "default")
                         break
                     }
                     
@@ -124,14 +148,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let allCity = cityStore.getAllCity()
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let showDetailsCityWeather = storyboard.instantiateViewController(withIdentifier: "DetailsCityWeather") as? DetailsCityWeather{
-            //let friend = friends[indexPath.row]
+            let city = allCity[indexPath.row]
 
-            //showDetailsUIViewController.user_details = friend
-            //manually create navigation controller
-            //let navigationCOntroller = UINavigationController(rootViewController: editViewController)
+            showDetailsCityWeather.cityDetails = city
             show(showDetailsCityWeather, sender: nil)
             tableView.deselectRow(at: indexPath, animated: true)
         }

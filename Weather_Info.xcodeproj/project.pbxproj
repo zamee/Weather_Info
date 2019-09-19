@@ -17,6 +17,10 @@
 		6B78DE7B2326104D0032C4B0 /* CityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78DE7A2326104D0032C4B0 /* CityStore.swift */; };
 		6B78DE7D232651BE0032C4B0 /* ListOfCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78DE7C232651BE0032C4B0 /* ListOfCities.swift */; };
 		6B96CE7E2325FA09004FF99A /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96CE7D2325FA09004FF99A /* City.swift */; };
+		6BBCB8FB2330872B006A4230 /* UICollectionViewForHourlyTemparature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBCB8F92330872B006A4230 /* UICollectionViewForHourlyTemparature.swift */; };
+		6BBCB8FC2330872B006A4230 /* UICollectionViewForHourlyTemparature.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BBCB8FA2330872B006A4230 /* UICollectionViewForHourlyTemparature.xib */; };
+		6BBCB9032330CA25006A4230 /* DailyTemparatureCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBCB9012330CA25006A4230 /* DailyTemparatureCellTableViewCell.swift */; };
+		6BBCB9042330CA25006A4230 /* DailyTemparatureCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BBCB9022330CA25006A4230 /* DailyTemparatureCellTableViewCell.xib */; };
 		6BCCC7E423289C7C0065B857 /* AddNewCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCCC7E323289C7C0065B857 /* AddNewCity.swift */; };
 		6BCCC80B2328E5420065B857 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCCC8092328E5420065B857 /* CityCell.swift */; };
 		6BCCC80C2328E5420065B857 /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BCCC80A2328E5420065B857 /* CityCell.xib */; };
@@ -38,6 +42,10 @@
 		6B78DE7A2326104D0032C4B0 /* CityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStore.swift; sourceTree = "<group>"; };
 		6B78DE7C232651BE0032C4B0 /* ListOfCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCities.swift; sourceTree = "<group>"; };
 		6B96CE7D2325FA09004FF99A /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		6BBCB8F92330872B006A4230 /* UICollectionViewForHourlyTemparature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UICollectionViewForHourlyTemparature.swift; path = ../UICollectionViewForHourlyTemparature.swift; sourceTree = "<group>"; };
+		6BBCB8FA2330872B006A4230 /* UICollectionViewForHourlyTemparature.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UICollectionViewForHourlyTemparature.xib; path = ../UICollectionViewForHourlyTemparature.xib; sourceTree = "<group>"; };
+		6BBCB9012330CA25006A4230 /* DailyTemparatureCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTemparatureCellTableViewCell.swift; sourceTree = "<group>"; };
+		6BBCB9022330CA25006A4230 /* DailyTemparatureCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTemparatureCellTableViewCell.xib; sourceTree = "<group>"; };
 		6BCCC7E323289C7C0065B857 /* AddNewCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCity.swift; sourceTree = "<group>"; };
 		6BCCC8092328E5420065B857 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		6BCCC80A2328E5420065B857 /* CityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
@@ -131,6 +139,10 @@
 			children = (
 				6BCCC8092328E5420065B857 /* CityCell.swift */,
 				6BCCC80A2328E5420065B857 /* CityCell.xib */,
+				6BBCB8F92330872B006A4230 /* UICollectionViewForHourlyTemparature.swift */,
+				6BBCB8FA2330872B006A4230 /* UICollectionViewForHourlyTemparature.xib */,
+				6BBCB9012330CA25006A4230 /* DailyTemparatureCellTableViewCell.swift */,
+				6BBCB9022330CA25006A4230 /* DailyTemparatureCellTableViewCell.xib */,
 			);
 			path = Cell_of_City;
 			sourceTree = "<group>";
@@ -206,7 +218,9 @@
 			files = (
 				6B0C0DE52323926200BB36A2 /* LaunchScreen.storyboard in Resources */,
 				6B0C0DE22323926200BB36A2 /* Assets.xcassets in Resources */,
+				6BBCB8FC2330872B006A4230 /* UICollectionViewForHourlyTemparature.xib in Resources */,
 				6BCCC80C2328E5420065B857 /* CityCell.xib in Resources */,
+				6BBCB9042330CA25006A4230 /* DailyTemparatureCellTableViewCell.xib in Resources */,
 				6B0C0DE02323926100BB36A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +276,8 @@
 			files = (
 				6B78DE7D232651BE0032C4B0 /* ListOfCities.swift in Sources */,
 				6B0C0DDD2323926100BB36A2 /* MainViewController.swift in Sources */,
+				6BBCB9032330CA25006A4230 /* DailyTemparatureCellTableViewCell.swift in Sources */,
+				6BBCB8FB2330872B006A4230 /* UICollectionViewForHourlyTemparature.swift in Sources */,
 				6B96CE7E2325FA09004FF99A /* City.swift in Sources */,
 				6B0C0DDB2323926100BB36A2 /* AppDelegate.swift in Sources */,
 				6B0C0DED2323957100BB36A2 /* WeatherForeCast.swift in Sources */,

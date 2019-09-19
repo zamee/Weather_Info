@@ -10,16 +10,24 @@ struct WeatherforeCast: Codable {
     let latitude, longitude: Double
     let timezone: String
     let currently: Currently
+    let hourly: Hourly
     let daily: Daily
 }
 
 // MARK: - Currently
 struct Currently: Codable {
     let time: Int
-    let summary: Summary
+    let summary: String
     let icon: String
     let temperature, apparentTemperature, dewPoint, humidity: Double
     let pressure, windSpeed, windGust: Double
+}
+
+// MARK: - Hourly
+struct Hourly: Codable {
+    let summary: String
+    let icon: String
+    let data: [Currently]
 }
 
 enum Summary: String, Codable {

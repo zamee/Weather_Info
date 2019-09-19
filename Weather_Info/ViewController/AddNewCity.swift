@@ -29,7 +29,6 @@ class AddNewCity: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchCityBar.addSubview(searchController.searchBar)
         searchController.searchBar.delegate = self
-        
     }
     
     func filterData(val: String) {
