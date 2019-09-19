@@ -82,15 +82,8 @@
                                     <constraint firstAttribute="height" constant="201" id="d11-ku-9gz"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="PZ5-CU-xta">
-                                <rect key="frame" x="10" y="49" width="70" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="lGV-me-qAt"/>
-                                    <constraint firstAttribute="width" constant="70" id="sLA-CO-5fQ"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="3NB-BZ-roC">
-                                <rect key="frame" x="10" y="49" width="70" height="50"/>
+                                <rect key="frame" x="200" y="44" width="70" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WCV-Gm-t3o"/>
                                     <constraint firstAttribute="width" constant="70" id="vj2-mV-Vnz"/>
@@ -180,10 +173,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="rLW-TI-Bz0">
-                                <rect key="frame" x="10" y="49" width="70" height="50"/>
+                                <rect key="frame" x="300" y="69" width="70" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="BFp-eh-bNg"/>
                                     <constraint firstAttribute="height" constant="50" id="vEZ-YP-Ufd"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="PZ5-CU-xta">
+                                <rect key="frame" x="80" y="64" width="70" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lGV-me-qAt"/>
+                                    <constraint firstAttribute="width" constant="70" id="sLA-CO-5fQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="possible_light_rain_and_humid" translatesAutoresizingMaskIntoConstraints="NO" id="16M-8N-ID1">
+                                <rect key="frame" x="10" y="52" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="hUp-a6-fQc"/>
+                                    <constraint firstAttribute="height" constant="50" id="vlb-1o-R9z"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -195,33 +202,35 @@
                             <constraint firstItem="RF3-dC-MFE" firstAttribute="leading" secondItem="fTp-wZ-p8x" secondAttribute="trailing" constant="8" id="3hp-5D-DKy"/>
                             <constraint firstItem="NbZ-v8-a0j" firstAttribute="top" secondItem="hy8-nc-dRc" secondAttribute="bottom" id="4L7-oQ-2b6"/>
                             <constraint firstItem="nJV-i3-pgt" firstAttribute="top" secondItem="cqm-DR-b5M" secondAttribute="bottom" constant="20" id="5LG-Ny-DRB"/>
-                            <constraint firstItem="3NB-BZ-roC" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="5" id="AlL-BZ-5A5"/>
                             <constraint firstItem="dMd-52-PAY" firstAttribute="top" secondItem="71i-wN-c3F" secondAttribute="bottom" id="CHU-es-kMa"/>
                             <constraint firstItem="fTp-wZ-p8x" firstAttribute="leading" secondItem="cqm-DR-b5M" secondAttribute="trailing" id="Cbz-wB-top"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="trailing" secondItem="nJV-i3-pgt" secondAttribute="trailing" constant="10" id="CtH-H2-dy1"/>
+                            <constraint firstItem="16M-8N-ID1" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="8" id="ETZ-aJ-Olt"/>
                             <constraint firstItem="OMO-lz-pIo" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" id="Fpc-d8-zs4"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="trailing" secondItem="NbZ-v8-a0j" secondAttribute="trailing" id="I6L-Lq-Usr"/>
                             <constraint firstItem="OMO-lz-pIo" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" id="IVB-ty-rez"/>
+                            <constraint firstItem="rLW-TI-Bz0" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="300" id="KmB-zb-XW8"/>
                             <constraint firstItem="cqm-DR-b5M" firstAttribute="top" secondItem="DeU-Aj-02y" secondAttribute="bottom" constant="10" id="Nmq-DT-JH9"/>
                             <constraint firstItem="RF3-dC-MFE" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="11" id="O7P-PM-Dss"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="trailing" secondItem="dMd-52-PAY" secondAttribute="trailing" id="OMq-dV-al0"/>
+                            <constraint firstItem="16M-8N-ID1" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="10" id="RS6-qJ-vxS"/>
                             <constraint firstItem="dMd-52-PAY" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" id="RiW-Uk-dI1"/>
                             <constraint firstItem="hy8-nc-dRc" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" id="T6b-Gr-zPU"/>
-                            <constraint firstItem="rLW-TI-Bz0" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="10" id="UEo-uU-LK0"/>
                             <constraint firstItem="dMd-52-PAY" firstAttribute="top" secondItem="71i-wN-c3F" secondAttribute="bottom" id="UpM-se-F5v"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="trailing" secondItem="71i-wN-c3F" secondAttribute="trailing" id="YRU-TQ-lI7"/>
+                            <constraint firstItem="PZ5-CU-xta" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="80" id="ZBl-4p-phf"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="bottom" secondItem="NbZ-v8-a0j" secondAttribute="bottom" id="asM-1F-Ytw"/>
-                            <constraint firstItem="PZ5-CU-xta" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="5" id="fXy-Q1-92G"/>
-                            <constraint firstItem="rLW-TI-Bz0" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="5" id="geB-TU-klk"/>
+                            <constraint firstItem="3NB-BZ-roC" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="200" id="dNb-LT-5ry"/>
+                            <constraint firstItem="rLW-TI-Bz0" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="25" id="fW6-ad-1Me"/>
                             <constraint firstItem="DeU-Aj-02y" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="70" id="h60-n8-6Ot"/>
                             <constraint firstItem="NbZ-v8-a0j" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" id="juV-sb-geT"/>
                             <constraint firstItem="cs7-lX-6Lj" firstAttribute="trailing" secondItem="fTp-wZ-p8x" secondAttribute="trailing" constant="100" id="l2r-V4-1Vr"/>
                             <constraint firstItem="cqm-DR-b5M" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="25" id="mee-Sz-EH0"/>
                             <constraint firstItem="hy8-nc-dRc" firstAttribute="top" secondItem="dMd-52-PAY" secondAttribute="bottom" id="np9-jS-Vo8"/>
-                            <constraint firstItem="3NB-BZ-roC" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="10" id="q6Q-Kw-Yav"/>
+                            <constraint firstItem="3NB-BZ-roC" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" id="qE5-HU-Vxd"/>
+                            <constraint firstItem="PZ5-CU-xta" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" constant="20" id="qQO-o6-UOc"/>
                             <constraint firstItem="fTp-wZ-p8x" firstAttribute="top" secondItem="cs7-lX-6Lj" secondAttribute="top" id="r9d-Yk-2Nt"/>
                             <constraint firstItem="71i-wN-c3F" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" id="sDI-9n-6cv"/>
-                            <constraint firstItem="PZ5-CU-xta" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="10" id="tYd-Ce-i6I"/>
                             <constraint firstItem="hy8-nc-dRc" firstAttribute="trailing" secondItem="cs7-lX-6Lj" secondAttribute="trailing" id="tgf-7H-8lZ"/>
                             <constraint firstItem="DeU-Aj-02y" firstAttribute="leading" secondItem="cs7-lX-6Lj" secondAttribute="leading" constant="10" id="ueU-gs-gaM"/>
                             <constraint firstItem="fTp-wZ-p8x" firstAttribute="leading" secondItem="DeU-Aj-02y" secondAttribute="trailing" constant="50" id="uny-zb-6DW"/>
@@ -233,11 +242,12 @@
                         <outlet property="SunRiseLabel" destination="yIW-4V-Q0C" id="Ify-4C-UvJ"/>
                         <outlet property="SunSetLabel" destination="hBz-Ug-NXD" id="MFW-aY-VhQ"/>
                         <outlet property="cloud1" destination="rLW-TI-Bz0" id="kvE-IG-2I1"/>
-                        <outlet property="cloud1LeftConstraint" destination="tYd-Ce-i6I" id="4XP-NJ-Q0q"/>
+                        <outlet property="cloud1LeftConstraint" destination="ZBl-4p-phf" id="mm1-13-Df5"/>
                         <outlet property="cloud2" destination="PZ5-CU-xta" id="41S-Ih-1EV"/>
-                        <outlet property="cloud2LeftConstraint" destination="tYd-Ce-i6I" id="Iaz-TO-LVE"/>
+                        <outlet property="cloud2LeftConstraint" destination="dNb-LT-5ry" id="HKk-j1-IoX"/>
                         <outlet property="cloud3" destination="3NB-BZ-roC" id="5Od-nw-hSs"/>
-                        <outlet property="cloud3LeftConstraint" destination="q6Q-Kw-Yav" id="WAn-qP-BZX"/>
+                        <outlet property="cloud3LeftConstraint" destination="KmB-zb-XW8" id="tmH-hV-gyU"/>
+                        <outlet property="cloud4LeftConstraint" destination="RS6-qJ-vxS" id="rUx-xM-5eV"/>
                         <outlet property="currentCityName" destination="DeU-Aj-02y" id="mXx-tq-NWr"/>
                         <outlet property="currentDescription" destination="nJV-i3-pgt" id="zpu-Qt-Bqx"/>
                         <outlet property="current_temp" destination="cqm-DR-b5M" id="Xde-UQ-DGB"/>
@@ -328,6 +338,7 @@
         <image name="cloud" width="256" height="256"/>
         <image name="clouds" width="256" height="256"/>
         <image name="cloudy" width="256" height="256"/>
+        <image name="possible_light_rain_and_humid" width="256" height="256"/>
         <image name="sky" width="852" height="480"/>
         <image name="sunRiseSet" width="100" height="100"/>
     </resources>

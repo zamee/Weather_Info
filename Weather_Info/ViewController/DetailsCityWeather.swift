@@ -26,6 +26,7 @@ class DetailsCityWeather: UIViewController, UICollectionViewDataSource{
     @IBOutlet weak var cloud1LeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var cloud2LeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var cloud3LeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var cloud4LeftConstraint: NSLayoutConstraint!
     
     
     
@@ -54,21 +55,26 @@ class DetailsCityWeather: UIViewController, UICollectionViewDataSource{
         cloud1LeftConstraint.constant -= view.frame.width
         cloud2LeftConstraint.constant -= view.frame.width
         cloud3LeftConstraint.constant -= view.frame.width
+        cloud4LeftConstraint.constant -= view.frame.width
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIView.animate(withDuration: 15, delay: 5, options: [.repeat,.curveLinear], animations: {
+        UIView.animate(withDuration: 20, delay: 4, options: [.repeat,.curveLinear], animations: {
             self.cloud1LeftConstraint.constant = self.view.bounds.width * 1
             self.view.layoutIfNeeded()
         })
-        UIView.animate(withDuration: 15, delay: 5, options: [.repeat,.curveLinear], animations: {
+        UIView.animate(withDuration: 20, delay: 2, options: [.repeat,.curveLinear], animations: {
             self.cloud2LeftConstraint.constant = self.view.bounds.width * 1
             self.view.layoutIfNeeded()
         })
         
-        UIView.animate(withDuration: 20, delay: 5, options: [.repeat,.curveLinear], animations: {
+        UIView.animate(withDuration: 20, delay: 0, options: [.repeat,.curveLinear], animations: {
             self.cloud3LeftConstraint.constant = self.view.bounds.width * 1
+            self.view.layoutIfNeeded()
+        })
+        UIView.animate(withDuration: 20, delay: 6, options: [.repeat,.curveLinear], animations: {
+            self.cloud4LeftConstraint.constant = self.view.bounds.width * 1
             self.view.layoutIfNeeded()
         })
     }
